@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from.forms import reviewR
 
@@ -18,7 +18,7 @@ def CreateReview(request):
             print(fm)
             if fm.is_valid():
                 fm.save()
-                return render(request, "review-success.html")
+                return redirect("review-success")
         else:
             fm = reviewR()
             return render(request, "create-review.html",{'forms':fm})
