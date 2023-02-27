@@ -4,13 +4,10 @@ from.forms import reviewR
 
 # Create your views here
 def Welcome(request):
-    return render(request, 'welcome.html')
+    return redirect('/create-review')
 
 def ViewReviews(request):
     return render(request, "view-reviews.html")
-
-def ReviewSuccess(request):
-    return render(request, "review-success.html")
 
 def CreateReview(request):
         if(request.method == "POST"):
@@ -18,7 +15,7 @@ def CreateReview(request):
             print(fm)
             if fm.is_valid():
                 fm.save()
-                return redirect("review-success")
+                return render(request, "thanks.html")
         else:
             fm = reviewR()
             return render(request, "create-review.html",{'forms':fm})
