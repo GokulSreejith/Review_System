@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.Welcome, name='welcome'),
     path('login', views.AdminLogin, name='admin-login'),
     path('create-review', views.CreateReview, name='create-reviews'),
+    path('review-success', views.ReviewSuccess, name='review-success'),
     path('view-reviews', views.ViewReviews, name='view-reviews'
     # ,{
     #     reviews: [
